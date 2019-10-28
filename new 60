@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang=""><!--<![endif]--><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Address Tool</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+</head>
+<body>
+    				<style>
+						* {
+							 	font-family: sans-serif;
+						}
+						body,html {
+								background-color:#1D2631;
+						}
+						div[data-name="page"] {
+								max-width: 40rem;
+								width: 90%;
+								margin: 5rem auto;
+								display: block;
+						}
+					 	input[type="file"] 
+						
+						label {
+							color: #FFFFFF;
+							margin-bottom: 2rem;
+						}
+						button {
+							cursor: pointer;
+							display: block;
+							margin: 1rem auto 3rem auto;
+							width: 13rem;
+							border: 0.05rem solid #FFC500;
+							color: #FFC500;
+							border-radius: 1.5rem;
+							padding: 0.7rem 2rem;
+							font-size: 0.9rem;
+							background-color: transparent;
+							outline: none;
+						}
+						button:hover {
+							background-color: #FFC500;
+							color: #000000;
+						}
+						div[data-name="outputs"] {
+								max-width: 40rem;
+								margin: 1rem auto;
+						}
+						div[data-name="output"] {
+							 	margin-bottom: 3rem;
+						}
+						div[data-name="output"] strong {
+								color: #FFFFFF;
+								margin: 0 0 0.5rem 0;
+								display: block;
+								font-size: 0.9rem;
+								font-weight: 500;
+						}
+						div[data-name="output"] span {
+							 	padding: 1rem 0.5rem;
+								text-align: center;
+								font-weight: 300;
+								font-size: 0.9rem;
+								background-color: rgba(255,255,255,0.08);
+								border-bottom: 0.1rem solid rgba(255, 197, 0, 1);
+								color: #FFFFFF;
+								width: 100%;
+								box-sizing: border-box;
+								display: block;
+								word-break: break-all;
+						}
+						.hide {
+							display: none;
+						}
+				</style>
+
+				<div data-name="page">
+						<div data-name="fields">
+								<div data-name="field">
+										<input type="file">
+										<button>CONVERT</button>
+								</div>
+						</div>
+						<div data-name="outputs" class="hide">
+								<div data-name="output">
+										<strong>WIF (Compressed)</strong>
+										<span></span>
+								</div>
+								<div data-name="output">
+										<strong>Address (Compressed)</strong>
+										<span></span>
+							
+								</div>
+						</div>
+				</div>
+
+
+    <script src="Address%20Tool_files/jquery-latest.js"></script>
+    <script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+
+    <script type="text/javascript" src="Address%20Tool_files/crypto-min.js"></script>
+    <script type="text/javascript" src="Address%20Tool_files/crypto-sha256.js"></script>
+    <script type="text/javascript" src="Address%20Tool_files/crypto-sha256-hmac.js"></script>
+    <script type="text/javascript" src="Address%20Tool_files/sha512.js"></script>
+    <script type="text/javascript" src="Address%20Tool_files/ripemd160.js"></script>
+    <script type="text/javascript" src="Address%20Tool_files/aes.js"></script>
+
+    <script type="text/javascript" src="Address%20Tool_files/qrcode.js"></script>
+    <script type="text/javascript" src="Address%20Tool_files/qcode-decoder.js"></script>
+    <script type="text/javascript" src="Address%20Tool_files/jsbn.js"></script>
+    <script type="text/javascript" src="Address%20Tool_files/ellipticcurve.js"></script>
+
+    <script type="text/javascript" src="Address%20Tool_files/coin.js"></script>
+    <script type="text/javascript" src="Address%20Tool_files/asciihex.htm"></script>
+
+    <script type="text/javascript" src="Address%20Tool_files/bitcoinjs.js"></script>
+
+/* convert a wif to a address */
+	coinjs.wif2address = function(wif){
+		var r = coinjs.wif2pubkey(wif);
+		return {'address':coinjs.pubkey2address(r['pubkey']), 'compressed':r['compressed']};
+	}
